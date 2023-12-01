@@ -12,10 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Compare with hardcoded credentials
     if ($username === $correct_username && $password === $correct_password) {
         // Redirect to homepage
+        http_response_code(200);
         header('Location: homepage.html');
         exit();
     } else {
         // Redirect back to the login page
+        http_response_code(401);
         echo "<script>alert('Wrong password!'); window.location.href='index.html';</script>";
         exit();
     }
